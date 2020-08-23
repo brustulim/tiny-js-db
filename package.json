@@ -1,0 +1,40 @@
+{
+  "name": "tiny-js-db",
+  "version": "1.0.0",
+  "description": "A tiny and fast in memory database with relationships support focused in simplicity, small footprint and lib size",
+  "license": "MIT",
+  "author": {
+    "name": "Herminio Brustulim",
+    "email": "brustulim@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brustulim/tiny-js-db.git"
+  },
+  "keywords": ["database", "javascript", "relationship", "memory", "in memory"],
+  "bugs": {
+    "url": "https://github.com/brustulim/tiny-js-db/issues"
+  },
+  "homepage": "https://github.com/brustulim/tiny-js-db#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test/*.js",
+    "build": "browserify --standalone tiny-js-db . -t | terser --compress --comments false --mangle > tiny-js-db.min.js",
+    "build-debug": "browserify --standalone tiny-js-db . -t -o tiny-js-db.debug.js"
+  },
+  "dependencies": {
+    "lodash": "^4.17.19"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "browserify": "^16.5.1",
+    "eslint-plugin-html": "^6.0.2",
+    "standard": "*",
+    "tape": "^5.0.1",
+    "terser": "^4.7.0"
+  },
+  "standard": {
+    "plugins": ["html"],
+    "parser": "babel-eslint"
+  }
+}
