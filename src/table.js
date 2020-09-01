@@ -104,24 +104,24 @@ class Table {
     }
   }
 
-  add (data) {
+  insert (data) {
     // Object.freeze(data)
     if (Array.isArray(data)) {
-      data.forEach(this._addNewRecord)
+      data.forEach(this._insertNewRecord)
     } else {
-      this._addNewRecord(data)
+      this._insertNewRecord(data)
     }
   }
 
-  addMany (data) {
+  insertMany (data) {
     // Object.freeze(data)
     if (!Array.isArray(data)) {
-      throw new Error('addMany expects an array')
+      throw new Error('insertMany expects an array')
     }
-    data.forEach(this._addNewRecord.bind(this))
+    data.forEach(this._insertNewRecord.bind(this))
   }
 
-  _addNewRecord (data) {
+  _insertNewRecord (data) {
     const newLength = this[tableData].push(data)
     if (this._db.autoGenerateIds) {
       data._id = newLength - 1

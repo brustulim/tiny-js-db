@@ -2,13 +2,13 @@ const TinyJsDb = require('./')
 
 const Db = new TinyJsDb()
 const wheels = Db.createTable('wheels')
-wheels.add({ name: '13', size: 12.9 })
-wheels.add({ name: '18', size: 18.4 })
+wheels.insert({ name: '13', size: 12.9 })
+wheels.insert({ name: '18', size: 18.4 })
 
 const cars = Db.createTable('cars')
 const newCar = { name: 'Ferrari', country: 'Italy' }
-cars.add({ name: 'Porsche', country: 'Germany' })
-cars.add(newCar)
+cars.insert({ name: 'Porsche', country: 'Germany' })
+cars.insert(newCar)
 console.log(cars.name, ' - length: ', cars.length)
 
 const myCars = cars.getAll()

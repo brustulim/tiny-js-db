@@ -42,8 +42,8 @@ test('Table:add - should add data to table', function (assert) {
   const cars = Db.createTable('cars')
 
   const newCar = { name: 'Ferrari', country: 'Italy' }
-  cars.add({ name: 'Porsche', country: 'Germany' })
-  cars.add(newCar)
+  cars.insert({ name: 'Porsche', country: 'Germany' })
+  cars.insert(newCar)
 
   assert.equal(cars.length, 2)
   assert.deepEqual(cars.getAll(), [

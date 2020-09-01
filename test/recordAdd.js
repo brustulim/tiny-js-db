@@ -2,12 +2,12 @@
 const test = require('tape')
 const TinyJsDb = require('..')
 
-test('Table:addMany - should insert many records to table', function (assert) {
+test('Table:insertMany - should insert many records to table', function (assert) {
   assert.plan(1)
 
   const Db = new TinyJsDb()
   const cars = Db.createTable('cars')
-  cars.addMany([
+  cars.insertMany([
     { name: 'Porsche', country: 'Germany' },
     { name: 'Fiat 147', country: 'Italy' },
     { name: 'VW Bus', country: 'Germany' },

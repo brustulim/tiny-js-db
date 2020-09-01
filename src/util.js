@@ -1,3 +1,5 @@
+'use strict'
+
 function replaceObject (obj, newValues) {
   if (!obj || !newValues) {
     throw new Error(

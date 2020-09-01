@@ -3,7 +3,7 @@ const test = require('tape')
 const TinyJsDb = require('..')
 
 function addFakeData (table) {
-  table.addMany([
+  table.insertMany([
     { name: 'Porsche', country: 'Germany' },
     { name: 'Fiat 147', country: 'Italy' },
     { name: 'VW Bus', country: 'Germany' },

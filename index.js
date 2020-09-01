@@ -1,6 +1,6 @@
 'use strict'
 const { isEqual, isEmpty, some, sortBy } = require('lodash/fp')
-const Table = require('./table')
+const Table = require('./src/table')
 
 class TinyJsDb {
   constructor (opts = {}) {
