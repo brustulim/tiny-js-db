@@ -1,6 +1,6 @@
 {
   "name": "tiny-js-db",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tiny and fast in memory database with relationships support focused in simplicity, small footprint and lib size",
   "license": "MIT",
   "author": {
