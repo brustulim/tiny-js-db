@@ -4,8 +4,7 @@
 
 ## What it is?
 
-Tiny-js-db was born from a need for working with large relational data in memory, where each byte of memory saved matters, GC must works masterfully, index are essential for performance. all with the minimum possible footprint.
-Then tiny-js-db was created to achieve these goals with a small boilerplate.
+Tiny-js-db was born from a need for working with large relational data in memory where each byte of memory saved matters, GC must works masterfully and indexes are essential for performance... all with the smallest footprint and boilerplate possible.
 
 ## Installation
 
@@ -50,7 +49,7 @@ const abilities = Db.createTable('abilities')
 // set relationships
 Db.createRelationship(heroes, abilities)
 
-// add record to database
+// add records to the database
 heroes.insert({ name: 'Thor', age: 437 })
 heroes.insert({ name: 'Hulk', age: 40 })
 // add record and get its instance
@@ -71,7 +70,9 @@ heroes.addRelation(thor, 'abilities', thunder)
 
 // add a relation between records - using its ids
 heroes.addRelation(1, 'abilities', 1)
-heroes.addRelation(1, 'abilities', 0)
+
+// relations can be set from both sides
+abilities.addRelation(2, 'abilities', ironMan)
 
 // get a record with its relationships
 const item = heroes.getById(1, ['abilities'])

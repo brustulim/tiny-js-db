@@ -10,7 +10,7 @@ const abilities = Db.createTable('abilities')
 // set relationships
 Db.createRelationship(heroes, abilities)
 
-// add record to database
+// add records to the database
 heroes.insert({ name: 'Thor', age: 437 })
 heroes.insert({ name: 'Hulk', age: 40 })
 // add record and get its instance
@@ -31,7 +31,9 @@ heroes.addRelation(thor, 'abilities', thunder)
 
 // add a relation between records - using its ids
 heroes.addRelation(1, 'abilities', 1)
-heroes.addRelation(1, 'abilities', 0)
+
+// relations can be set from both sides
+abilities.addRelation(2, 'abilities', ironMan)
 
 // get a record with its relationships
 const item = heroes.getById(1, ['abilities'])
