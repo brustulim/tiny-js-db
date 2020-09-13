@@ -15,6 +15,15 @@ const tableName = Symbol('tableName')
 const tableData = Symbol('tableData')
 const tableRelations = Symbol('tableRelations')
 
+/**
+ * @class Table
+ * @classdesc the controller that handles the database tables
+ * @param {object} db - The TinyJsDb instance
+ * @param {string} tableName - the table name
+ * @description
+ * Contains the logic for maintaining the session.
+ * An instance of this class is placed on the app object where it can be accessed
+ */
 class Table {
   constructor (db, name) {
     this._db = db
@@ -36,6 +45,13 @@ class Table {
     throw new Error('A table cannot be renamed')
   }
 
+  /**
+   * Get a record by its id
+   *
+   * @param {number} id - The desired record id
+   * @param {array} [relations=[]] - an array containing the tables name of desired relations
+   * @return {object}  - The record
+   */
   getById (id, relations = []) {
     return this._getDataWithRelatedRecords(id, relations)
   }
@@ -69,6 +85,11 @@ class Table {
     return relatedIds.map(id => relationship.table.getById(id))
   }
 
+  /**
+   * @memberof Table.prototype
+   * @summary attempt to resume session from previous token.
+   * @returns {object} The record test
+   */
   getAll (limit) {
     return [].concat(limit ? slice(0, limit, this[tableData]) : this[tableData])
   }

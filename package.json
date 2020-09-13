@@ -1,6 +1,6 @@
 {
   "name": "tiny-js-db",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A tiny and fast in memory database with relationships support focused in simplicity, small footprint and lib size",
   "license": "MIT",
   "author": {
@@ -21,7 +21,8 @@
     "test": "standard && tape test/*.js",
     "simple-test": "tape test/*.js",
     "build": "browserify --standalone tiny-js-db . -t | terser --compress --comments false --mangle > tiny-js-db.min.js",
-    "build-debug": "browserify --standalone tiny-js-db . -t -o tiny-js-db.debug.js"
+    "build-debug": "browserify --standalone tiny-js-db . -t -o tiny-js-db.debug.js",
+    "docs": "jsdoc2md index.js ./src/*.js > ./doc/api.md"
   },
   "dependencies": {
     "lodash": "^4.17.19"
@@ -31,6 +32,8 @@
     "babel-plugin-lodash": "^3.3.4",
     "browserify": "^16.5.1",
     "eslint-plugin-html": "^6.0.2",
+    "jsdoc": "^3.6.5",
+    "jsdoc-to-markdown": "^6.0.1",
     "standard": "*",
     "tape": "^5.0.1",
     "terser": "^4.7.0"

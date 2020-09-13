@@ -1,14 +1,16 @@
 const TinyJsDb = require('./')
 
 // create a new database instance
-const Db = new TinyJsDb()
+const db = new TinyJsDb()
 
 // create tables
-const heroes = Db.createTable('heroes')
-const abilities = Db.createTable('abilities')
+const heroes = db.createTable('heroes')
+const abilities = db.createTable('abilities')
 
 // set relationships
-Db.createRelationship(heroes, abilities)
+db.createRelationship(heroes, abilities)
+
+console.log(db.relationships)
 
 // add records to the database
 heroes.insert({ name: 'Thor', age: 437 })

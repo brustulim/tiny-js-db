@@ -37,46 +37,46 @@ npm install tiny-js-db --save
 ## Usage Example
 
 ```javascript
-const TinyJsDb = require('./')
+const TinyJsDb = require("./");
 
 // create a new database instance
-const Db = new TinyJsDb()
+const Db = new TinyJsDb();
 
 // create tables
-const heroes = Db.createTable('heroes')
-const abilities = Db.createTable('abilities')
+const heroes = Db.createTable("heroes");
+const abilities = Db.createTable("abilities");
 
 // set relationships
-Db.createRelationship(heroes, abilities)
+Db.createRelationship(heroes, abilities);
 
 // add records to the database
-heroes.insert({ name: 'Thor', age: 437 })
-heroes.insert({ name: 'Hulk', age: 40 })
+heroes.insert({ name: "Thor", age: 437 });
+heroes.insert({ name: "Hulk", age: 40 });
 // add record and get its instance
-const ironMan = heroes.insert({ name: 'Iron Man', age: 42 })
+const ironMan = heroes.insert({ name: "Iron Man", age: 42 });
 
-abilities.insert({ type: 'Super force' })
-abilities.insert({ type: 'Resistance' })
-abilities.insert({ type: 'Money' })
-abilities.insert({ type: 'Thunder' })
+abilities.insert({ type: "Super force" });
+abilities.insert({ type: "Resistance" });
+abilities.insert({ type: "Money" });
+abilities.insert({ type: "Thunder" });
 
 // retrieve a record by filter
-const thor = heroes.getFirst({ name: 'Thor' })
+const thor = heroes.getFirst({ name: "Thor" });
 // retrieve a record by id
-const thunder = abilities.getById(3)
+const thunder = abilities.getById(3);
 
 // add a relation between records - using its instances
-heroes.addRelation(thor, 'abilities', thunder)
+heroes.addRelation(thor, "abilities", thunder);
 
 // add a relation between records - using its ids
-heroes.addRelation(1, 'abilities', 1)
+heroes.addRelation(1, "heroes", 1);
 
 // relations can be set from both sides
-abilities.addRelation(2, 'abilities', ironMan)
+abilities.addRelation(2, "abilities", ironMan);
 
 // get a record with its relationships
-const item = heroes.getById(1, ['abilities'])
-console.log(item)
+const item = heroes.getById(1, ["abilities"]);
+console.log(item);
 /*
 {
   _id: 1,
@@ -86,8 +86,8 @@ console.log(item)
 }
 */
 
-const myHeroes = heroes.getAll()
-console.log(myHeroes)
+const myHeroes = heroes.getAll();
+console.log(myHeroes);
 /*
 [
   { name: 'Thor', age: 437, _id: 0 },
@@ -96,6 +96,12 @@ console.log(myHeroes)
 ]
 */
 ```
+
+## API Documentation
+
+Click here to view a detailed API documentation:
+
+### [tiny-js-db API Documentation](./doc/api.md)
 
 ## Important
 
